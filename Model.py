@@ -1,10 +1,13 @@
 import pandas as pd
 import numpy as np
 import data
+import log
+log = log.log
+log.struct_log(log)
 class Model:
     # Common base class for all employees
     def __init__(self,name):
-        self.name = name
+        self
     def read_data(self):
         self.data = data.data.data
     def train(self,time_train,time_test):
@@ -20,7 +23,7 @@ class Model:
     def test(self,time_train,time_test):
         from datetime import timedelta
         self.end_test_time =self.initial_test_time + timedelta(days=time_test-1)
-        print(self.end_test_time)
+        log.logger.debug(self.end_test_time)
         self.X_test = data.data.X_withdate[(data.data.X_withdate['Date'] >= self.initial_test_time) & (data.data.X_withdate['Date'] <= self.end_test_time)]
         self.date_temp = self.X_test['Date']
         self.X_test = self.X_test.drop(columns = ["Date","Code"])

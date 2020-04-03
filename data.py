@@ -1,7 +1,7 @@
 import pandas as pd
 class data:
     def __init__(self,name):
-        self.name = name
+        self
     def read_data(self):
         self.data = pd.read_pickle("F:/AHresearch/Data Pre-process2/Factor.pkl")
         self.data = self.data.sort_values(by = 'Date')

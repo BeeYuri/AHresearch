@@ -1,12 +1,17 @@
 import Model
 import data
 import utils
+import log
+log = log.log
+log.struct_log(log)
+
 pre_method = 'Rescaling'
 train_method = 'RandomForest'
 time_train = 300
 time_test = 10
 n_stock_select = 10
 seed = 41
+
 data = data.data
 data.read_data(data)
 data.split_data(data)
@@ -20,6 +25,9 @@ utils = utils.utils
 utils.parameter(utils,n_stock_select,seed)
 utils.struct_strategy(utils)
 utils.merging_index(utils)
+
+log.logger.info(utils.strategy)
+
 utils.print_winrate(utils)
 utils.plot_value(utils)
 utils.print_ann_return(utils)
